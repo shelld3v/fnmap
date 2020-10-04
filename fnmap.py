@@ -5,7 +5,7 @@ import os
 
 
 help = '''FNmap 1.0 - Flash Nmap (@shelld3v)
-Usage: %prog {target} {options}
+Usage: fnmap.py {target} {options}
 
 Options: 
  - FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target} argument

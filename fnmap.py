@@ -82,11 +82,13 @@ class Program(object):
 if __name__ == "__main__":
     if sys.argv[1] == '-h':
         print(help)
+        exit(0)
 
     try:
         host = sys.argv[1]
     except Exception:
         print(help)
+        exit(0)
 
     try:
         args = ' '.join(sys.argv[2:])

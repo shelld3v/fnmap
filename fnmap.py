@@ -18,13 +18,15 @@ class Program(object):
         self.host = host
         self.args = args
         self.open = []
-        self.setupScanner()
-        self.nmap()
+
         try:
             self.maxport = int(open('max_port.txt', 'r').read().strip())
         except:
             print('Invalid maxium port number in max_port.txt')
             exit(1)
+
+        self.setupScanner()
+        self.nmap()
 
 
     def nmap(self):

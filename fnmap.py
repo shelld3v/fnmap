@@ -18,6 +18,7 @@ class Program(object):
         self.host = host
         self.args = args
         self.open = []
+        self.resolver()
 
         try:
             self.maxport = int(open('max_port.txt', 'r').read().strip())
@@ -33,6 +34,14 @@ class Program(object):
         try:
             os.system('nmap -A -p {0} {1} {2}'.format(','.join(map(str, self.open)), self.host, self.args))
         except KeyboardInterrupt:
+            exit(1)
+
+
+    def resolver(self):
+        try:
+            ip = socket.gethostbyname(self.host)
+        except Exception:
+            print('Unable to resolve "{}"'.format(self.host))
             exit(1)
 
 
@@ -71,6 +80,9 @@ class Program(object):
 
 
 if __name__ == "__main__":
+    if sys.argv[1] == '-h':
+        print(help)
+
     try:
         host = sys.argv[1]
     except Exception:

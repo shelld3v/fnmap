@@ -7,7 +7,10 @@ import os
 help = '''FNmap 1.0 - Flash Nmap (@shelld3v)
 Usage: %prog {target} {options}
 
-Options: FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target}
+Options: 
+ - FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target} argument
+ - To setup ports to scan, you can edit the maxium port in max_port.txt
+
 Disclaimer: FNmap dooesn't accept IP ranges, FNmap first agrument must be a hostname or an IP address'''
 
 class Program(object):
@@ -17,6 +20,11 @@ class Program(object):
         self.open = []
         self.setupScanner()
         self.nmap()
+        try:
+            self.maxport = int(open('max_port.txt', 'r').read().strip())
+        except:
+            print('Invalid maxium port number in max_port.txt')
+            exit(1)
 
 
     def nmap(self):
@@ -45,14 +53,14 @@ class Program(object):
             
             threads = []
 
-            for port in range(1, 65536):
+            for port in range(1, self.maxport + 1):
                 _thread = threading.Thread(target=self.port_scan, args=[port])
                 threads.append(_thread)
 
-            for i in range(65535):
+            for i in range(self.maxport):
                 threads[i].start()
 
-            for i in range(65535):
+            for i in range(self.maxport):
                 if threads[i].isAlive():
                     threads[i].join()
 

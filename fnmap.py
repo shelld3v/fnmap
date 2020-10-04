@@ -4,6 +4,12 @@ import sys
 import os
 
 
+help = '''FNmap 1.0 - Flash Nmap (@shelld3v)
+Usage: %prog {target} {options}
+
+Options: FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target}
+Disclaimer: FNmap dooesn't accept IP ranges, FNmap first agrument must be a hostname or an IP address'''
+
 class Program(object):
     def __init__(self, host, args):
         self.host = host
@@ -58,7 +64,7 @@ if __name__ == "__main__":
     try:
         host = sys.argv[1]
     except Exception:
-        print('%prog <target> <options>')
+        print(help)
 
     try:
         args = ' '.join(sys.argv[2:])

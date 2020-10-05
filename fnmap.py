@@ -81,6 +81,7 @@ class Program(object):
                     threads[i].join()
 
         except KeyboardInterrupt:
+
             exit(1)
 
 

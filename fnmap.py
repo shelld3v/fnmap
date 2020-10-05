@@ -27,7 +27,12 @@ class Program(object):
             exit(1)
 
         self.setupScanner()
-        self.nmap()
+
+        if len(self.open):
+            self.nmap()
+        else:
+            print('No open port found')
+            exit(0)
 
 
     def nmap(self):

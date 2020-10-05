@@ -1,2 +1,4 @@
 # fnmap
-Flash nmap, a script to boost nmap 12 times faster
+#### FNmap - Flash NMap
+
+A script to boost nmap faster, scan 65k ports within 1 minute

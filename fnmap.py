@@ -1,5 +1,6 @@
 import threading
 import socket
+import time
 import sys
 import os
 
@@ -60,8 +61,12 @@ class Program(object):
             self.open.append(str(port))
             s.close()
 
-        except Exception:
-            pass
+        except socket.error as err:
+            if 'Too many open files' in err:
+                time.sleep(1)
+                self.port_scan(port)
+            else:
+                pass
 
 
     def setupScanner(self):

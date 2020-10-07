@@ -37,7 +37,7 @@ class Program(object):
 
     def nmap(self):
         try:
-            os.system('nmap -A -T4 -p {0} {1} {2}'.format(','.join(map(str, self.open)), self.host, self.args))
+            os.system('nmap -p {0} {1} {2}'.format(','.join(map(str, self.open)), self.host, self.args))
         except KeyboardInterrupt:
             exit(1)
 

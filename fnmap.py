@@ -10,9 +10,9 @@ Usage: fnmap.py {target} {options}
 
 Options: 
  - FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target} argument
- - To setup ports to scan, you can edit the maxium port in max_port.txt
+ - To setup ports to scan, you can edit the maximum port in max_port.txt
 
-Disclaimer: FNmap dooesn't accept IP ranges, FNmap first agrument must be a hostname or an IP address'''
+Disclaimer: FNmap doesn't accept IP ranges, FNmap first argument must be a hostname or an IP address'''
 
 class Program(object):
     def __init__(self, host, args):

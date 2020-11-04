@@ -18,6 +18,7 @@ class Program(object):
     def __init__(self, host, args):
         self.host = host
         self.args = args
+        self.ip = None
         self.open = []
         self.resolver()
 
@@ -45,7 +46,7 @@ class Program(object):
 
     def resolver(self):
         try:
-            ip = socket.gethostbyname(self.host)
+            self.ip = socket.gethostbyname(self.host)
         except Exception:
             print('Failed to resolve "{}"'.format(self.host))
             exit(1)
@@ -57,7 +58,7 @@ class Program(object):
         s.settimeout(2)
 
         try:
-            s.connect((self.host, port))
+            s.connect((self.ip, port))
             self.open.append(str(port))
             s.close()
 

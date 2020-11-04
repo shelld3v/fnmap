@@ -32,7 +32,7 @@ class Program(object):
         if len(self.open):
             self.nmap()
         else:
-            print('No open port found')
+            print('All scanned ports on {} are closed'.format(self.jost))
             exit(0)
 
 
@@ -47,7 +47,7 @@ class Program(object):
         try:
             ip = socket.gethostbyname(self.host)
         except Exception:
-            print('Unable to resolve "{}"'.format(self.host))
+            print('Failed to resolve "{}"'.format(self.host))
             exit(1)
 
 

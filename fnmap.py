@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Author: @shelld3v
+
 import threading
 import socket
 import time
@@ -5,11 +10,11 @@ import sys
 import os
 
 
-help = '''FNmap 1.0 - Flash Nmap (@shelld3v)
+help = '''FNmap 1.0 - Flash Nmap
 Usage: fnmap.py {target} {options}
 
 Options: 
- - FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target} argument
+ - FNmap is the same as Nmap, it accepts any Nmap options, but must be added after the {target}
  - To setup ports to scan, you can edit the maximum port in max_port.txt
 
 Disclaimer: FNmap doesn't accept IP ranges, FNmap first argument must be a hostname or an IP address'''

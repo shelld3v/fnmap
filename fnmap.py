@@ -67,7 +67,7 @@ class Program(object):
             self.open.append(str(port))
             s.close()
 
-        except socket.error as err:
+        except Exception as err:
             if 'Too many open files' in err:
                 time.sleep(1)
                 self.port_scan(port)

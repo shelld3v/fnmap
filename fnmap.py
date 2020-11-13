@@ -38,7 +38,7 @@ class Program(object):
         if len(self.open):
             self.nmap()
         else:
-            print('All scanned ports on {} are closed'.format(self.jost))
+            print('All scanned ports on {} are closed'.format(self.host))
             exit(0)
 
 

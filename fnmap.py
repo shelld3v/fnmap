@@ -68,7 +68,7 @@ class Program(object):
             s.close()
 
         except Exception as err:
-            if 'Too many open files' in err:
+            if 'Too many open files' in str(err):
                 time.sleep(1)
                 self.port_scan(port)
             else:
